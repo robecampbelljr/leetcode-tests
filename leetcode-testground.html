@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>Leetcode Testing</title>
+      <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+  </head>
+  <body>
+  <div id="mocha"></div>
+
+  <script src="./node_modules/mocha/mocha.js"></script>
+  <script src="./node_modules/chai/chai.js"></script>
+  <script src="./node_modules/chai-spies/chai-spies.js"></script>
+
+  <script>mocha.setup('bdd')</script>
+
+  <!-- Library -->
+  <script src="./lib/spytests.js"></script>
+  <script src="./lib/quickSort.js"></script>
+  <!-- Leetcode Challenges -->
+  <!-- <script src="./challenges/snakes-and-ladders.js"></script> -->
+  <!-- <script src="./challenges/concatinated-words.js"></script> -->
+  <!-- Testing Suites -->
+  <!-- <script src="./test/test.test-ground.js"></script> -->
+  <!-- <script src="./test/test.concat-words.js"></script> -->
+  <!-- <script src="./test/test.snakes-and-ladders.js"></script> -->
+  <!-- <script src="./test/test.sort-tests.js"></script> -->
+
+  <script>
+      mocha.run();
+  </script>
+  </body>
+</html>
