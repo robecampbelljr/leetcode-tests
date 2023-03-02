@@ -1,4 +1,6 @@
-describe('Snakes and Ladders', function () {
+const expect = chai.expect;
+
+describe('Snakes and Ladders', function() {
 
   let boardList = [[[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]], [[-1,-1],[-1,3]]];
   let answerList = [4, 1];
@@ -9,7 +11,7 @@ describe('Snakes and Ladders', function () {
   let shiftSpy = chai.spy.on(boardList[0], 'shift');
   let unshiftSpy = chai.spy.on(boardList[0], 'unshift');
 
-  it('should not mutate board', function () {
+  it('should not mutate board', function() {
     snakesAndLadders(boardList[0]);
     expect(popSpy).to.be.spy;
     expect(popSpy).to.not.be.called();
@@ -21,12 +23,12 @@ describe('Snakes and Ladders', function () {
     expect(unshiftSpy).to.not.be.called();
   })
 
-  it('should return a number', function () {
+  it('should return a number', function() {
     expect(typeof(snakesAndLadders(boardList[0]))).to.equal('number');
   });
 
-  boardList.forEach((board, index) => {
-    it(`should return minimum number of steps to get to end for board #${index+1}`, () => {
+  boardList.forEach(function(board, index) {
+    it(`should return minimum number of steps to get to end for board #${index+1}`, function() {
       expect(snakesAndLadders(board)).to.equal(answerList[index]);
     })
   })
