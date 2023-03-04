@@ -13,7 +13,7 @@ describe('needle-haystack.js', function() {
       it('should return a number', function() {
         expect(typeof(strStr(haystack, needle))).to.equal('number');
       })
-      it(`should return the proper result`, function() {
+      it(`should return '${answer}' for haystack '${haystack}`, function() {
         expect(strStr(haystack, needle)).to.equal(answer);
       })
     })
