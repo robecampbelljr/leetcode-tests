@@ -8,38 +8,39 @@
   * A subarray is a contiguous part of an array.
 */
 
-var countSubarrays = function(nums, minK, maxK) {
+let countSubarrays = (nums, minK, maxK) => {
   let result = 0;
+  let minKPresent = false;
+  let maxKPresent = false;
+  let left = 0;
+  let right = 0;
 
-  nums.forEach((num, index) => {
-    let numberIsInBounds = true;
-    let minKPresent = false;
-    let maxKPresent = false;
-    let j = index;
+  while (left < nums.length) {
+    let num = nums[right];
 
-    while(j < nums.length && numberIsInBounds) {
-
-      let num = nums[j];
-
-      if (!minKPresent && num === minK) {
-        minKPresent = true;
-      }
-
-      if (!maxKPresent && num === maxK) {
-        maxKPresent = true;
-      }
-
-      if (num < minK || num > maxK) {
-        numberIsInBounds = false;
-      }
-
-      if (minKPresent && maxKPresent && numberIsInBounds) {
-        result++;
-      }
-
-      j++;
+    if (num === minK) {
+      minKPresent = true;
+    } else if (num === maxK) {
+      maxKPresent = true;
     }
-  })
+
+    if (num < minK || num > maxK) {
+      left = right + 1;
+      minKPresent = false;
+      maxKPresent = false;
+    }
+
+    if (minKPresent && maxKPresent) {
+      result++;
+    }
+
+    right++;
+
+    if (right === nums.length) {
+      left++;
+      right = 0;
+    }
+  }
 
   return result;
 };
